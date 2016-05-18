@@ -85,42 +85,12 @@
     } failure:^(NSError *error) {
         XZLog(@"%@",error);
     }];
-    /*
-    // 3.发送请求
-    [mgr GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        // 微博的未读数
-        //        int status = [responseObject[@"status"] intValue];
-        // 设置提醒数字
-        //        self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", status];
-        
-        // @20 --> @"20"
-        // NSNumber --> NSString
-        // 设置提醒数字(微博的未读数)
-        NSString *status = [responseObject[@"status"] description];
-        if ([status isEqualToString:@"0"]) { // 如果是0，得清空数字
-            self.tabBarItem.badgeValue = nil;
-            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-        } else { // 非0情况
-            self.tabBarItem.badgeValue = status;
-            [UIApplication sharedApplication].applicationIconBadgeNumber = status.intValue;
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        XZLog(@"请求失败-%@", error);
-    }];
-     */
 }
 /**
  *  集成上拉刷新控件
  */
 - (void)setupRefresh
 {
-//    XZLoadMoreFooter *footer = [XZLoadMoreFooter footer];
-//    footer.hidden = YES;
-//    self.tableView.tableFooterView = footer;
-//    [self.tableView addFooterWithCallback:^{
-//        XZLog(@"进入上拉刷新状态");
-//    }];
-    
     [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
 }
 
@@ -380,25 +350,7 @@
     return cell;
 
 }
-/*
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    //    scrollView == self.tableView == self.view
-    // 如果tableView还没有数据，就直接返回
-    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
-    
-    CGFloat offsetY = scrollView.contentOffset.y;
-    // 当最后一个cell完全显示在眼前时，contentOffset的y值
-    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
-    if (offsetY >= judgeOffsetY) { // 最后一个cell完全进入视野范围内
-        // 显示footer
-        self.tableView.tableFooterView.hidden = NO;
-        
-        // 加载更多的微博数据
-        [self loadMoreStatus];
-    }
-}
-*/
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XZStatusFrame *frame = self.statusFrames[indexPath.row];
