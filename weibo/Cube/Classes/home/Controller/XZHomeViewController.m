@@ -312,12 +312,10 @@
 }
 - (void)friendSearch
 {
-    NSLog(@"friendSearch");
 }
 
 - (void)pop
 {
-    NSLog(@"pop");
 }
 
 #pragma mark - XZDropdownMenuDelegate

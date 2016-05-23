@@ -8,9 +8,9 @@
 
 #import "XZConst.h"
 // 账号信息
-NSString * const XZAppKey = @"3235932662";
+NSString * const XZAppKey = @"4135991501";
 NSString * const XZRedirectURI = @"http://www.baidu.com";
-NSString * const XZAppSecret = @"227141af66d895d0dd8baca62f73b700";
+NSString * const XZAppSecret = @"6e47fbc1dc1031648b5cc00c6988e8ca";
 
 // 通知
 // 表情选中的通知

@@ -124,6 +124,7 @@
     UILabel *contentLabel = [[UILabel alloc] init];
     contentLabel.font = XZStatusCellContentFont;
     contentLabel.numberOfLines = 0;
+    contentLabel.backgroundColor = [UIColor redColor];
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
 
