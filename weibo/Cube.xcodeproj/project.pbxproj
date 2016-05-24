@@ -56,6 +56,9 @@
 		8E5D88BE1CB397F700215DB7 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D88AC1CB397F700215DB7 /* UIImageView+HighlightedWebCache.m */; };
 		8E5D88BF1CB397F700215DB7 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D88AE1CB397F700215DB7 /* UIImageView+WebCache.m */; };
 		8E5D88C01CB397F700215DB7 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D88B01CB397F700215DB7 /* UIView+WebCacheOperation.m */; };
+		8E797BEA1CF2F46A00D775D8 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E797BE91CF2F46A00D775D8 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8E797BED1CF2F51100D775D8 /* XZTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E797BEC1CF2F51100D775D8 /* XZTextPart.m */; };
+		8E797C021CF312DA00D775D8 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E797C011CF312DA00D775D8 /* libicucore.tbd */; };
 		8EB901B81CA2AE890086F3D8 /* XZSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB901B71CA2AE890086F3D8 /* XZSearchBar.m */; };
 		8EB901BB1CA2E00F0086F3D8 /* XZDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB901BA1CA2E00F0086F3D8 /* XZDropdownMenu.m */; };
 		8EB901BE1CA2E38C0086F3D8 /* XZTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB901BD1CA2E38C0086F3D8 /* XZTitleMenuViewController.m */; };
@@ -215,6 +218,11 @@
 		8E5D88AE1CB397F700215DB7 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		8E5D88AF1CB397F700215DB7 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		8E5D88B01CB397F700215DB7 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		8E797BE81CF2F46A00D775D8 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		8E797BE91CF2F46A00D775D8 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		8E797BEB1CF2F51100D775D8 /* XZTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZTextPart.h; sourceTree = "<group>"; };
+		8E797BEC1CF2F51100D775D8 /* XZTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZTextPart.m; sourceTree = "<group>"; };
+		8E797C011CF312DA00D775D8 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		8EB901B61CA2AE890086F3D8 /* XZSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZSearchBar.h; sourceTree = "<group>"; };
 		8EB901B71CA2AE890086F3D8 /* XZSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZSearchBar.m; sourceTree = "<group>"; };
 		8EB901B91CA2E00F0086F3D8 /* XZDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZDropdownMenu.h; sourceTree = "<group>"; };
@@ -335,6 +343,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E797C021CF312DA00D775D8 /* libicucore.tbd in Frameworks */,
 				8ED9F8351CB642AE00B8E2A6 /* AssetsLibrary.framework in Frameworks */,
 				8ED9F8331CB6428900B8E2A6 /* Foundation.framework in Frameworks */,
 				8ED9F8311CB6427C00B8E2A6 /* UIKit.framework in Frameworks */,
@@ -492,6 +501,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		8E797BE71CF2F46A00D775D8 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				8E797BE81CF2F46A00D775D8 /* RegexKitLite.h */,
+				8E797BE91CF2F46A00D775D8 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		8EB901C21CA3DC300086F3D8 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +630,7 @@
 		8EFBD0B91CA0448A00822F2F = {
 			isa = PBXGroup;
 			children = (
+				8E797C011CF312DA00D775D8 /* libicucore.tbd */,
 				8ED9F8341CB642AE00B8E2A6 /* AssetsLibrary.framework */,
 				8ED9F8321CB6428900B8E2A6 /* Foundation.framework */,
 				8ED9F8301CB6427C00B8E2A6 /* UIKit.framework */,
@@ -729,6 +748,8 @@
 				8ECE53DF1CB4B66C00EDCBCF /* XZStatusFrame.m */,
 				8ECE53E41CB4FF1A00EDCBCF /* XZPhoto.h */,
 				8ECE53E51CB4FF1A00EDCBCF /* XZPhoto.m */,
+				8E797BEB1CF2F51100D775D8 /* XZTextPart.h */,
+				8E797BEC1CF2F51100D775D8 /* XZTextPart.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -819,6 +840,7 @@
 		8EFBD1161CA0EEA400822F2F /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				8E797BE71CF2F46A00D775D8 /* RegexKitLite */,
 				8E2545871CEAB74900EA58ED /* MJRefresh */,
 				8ECE53A11CB3BD3000EDCBCF /* MJExtension */,
 				8E5D888F1CB397F700215DB7 /* SDWebImage */,
@@ -1018,6 +1040,7 @@
 				8E5D88711CB357EA00215DB7 /* AFHTTPSessionManager.m in Sources */,
 				8EDBC4361CDAFE89007F361E /* XZEmotionAttachment.m in Sources */,
 				8E5D88BC1CB397F700215DB7 /* UIImage+MultiFormat.m in Sources */,
+				8E797BED1CF2F51100D775D8 /* XZTextPart.m in Sources */,
 				8ECE53B91CB3BD3000EDCBCF /* MJArgument.m in Sources */,
 				8E25455B1CE9BB0C00EA58ED /* XZConst.m in Sources */,
 				8E5D88721CB357EA00215DB7 /* AFNetworkReachabilityManager.m in Sources */,
@@ -1073,6 +1096,7 @@
 				8E5D887E1CB3634200215DB7 /* MBProgressHUD+MJ.m in Sources */,
 				8ECE53F41CB5261B00EDCBCF /* XZStatusPhotosView.m in Sources */,
 				8ECCC7BF1CBB8B2000CFE542 /* XZEmotion.m in Sources */,
+				8E797BEA1CF2F46A00D775D8 /* RegexKitLite.m in Sources */,
 				8E5D88BA1CB397F700215DB7 /* UIButton+WebCache.m in Sources */,
 				8EFBD1281CA0EEA400822F2F /* main.m in Sources */,
 				8E25459D1CEAB74900EA58ED /* UIScrollView+MJExtension.m in Sources */,

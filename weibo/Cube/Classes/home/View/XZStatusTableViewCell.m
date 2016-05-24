@@ -216,7 +216,8 @@
     self.sourceLabel.frame = statusFrame.sourceLabelF;
     
     /** 正文 */
-    self.contentLabel.text = status.text;
+    //NSSring 
+    self.contentLabel.attributedText = status.attributedText;
     self.contentLabel.frame = statusFrame.contentLabelF;
     
     /** 被转发的微博 */
