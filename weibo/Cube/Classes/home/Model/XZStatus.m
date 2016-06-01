@@ -117,6 +117,12 @@
     //利用text生成NSAttributedString
     self.attributedText = [self attributedTextWithText:text];
 }
+-(void)setRetweeted_status:(XZStatus *)retweeted_status
+{
+    _retweeted_status = retweeted_status;
+    NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@",retweeted_status.user.name,retweeted_status.text];
+    self.retweetedAttributedText = [self attributedTextWithText:retweetContent];
+}
 - (NSString *)created_at
 {
     // _created_at == Thu Oct 16 17:06:25 +0800 2014

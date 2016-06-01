@@ -124,7 +124,6 @@
     UILabel *contentLabel = [[UILabel alloc] init];
     contentLabel.font = XZStatusCellContentFont;
     contentLabel.numberOfLines = 0;
-    contentLabel.backgroundColor = [UIColor redColor];
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
 
@@ -136,7 +135,7 @@
 {
     /** 转发微博整体 */
     UIView *retweetView = [[UIView alloc] init];
-    retweetView.backgroundColor = XZColor(240, 240, 240);
+    retweetView.backgroundColor = XZColor(247, 247, 247);
     [self.contentView addSubview:retweetView];
     self.retweetView = retweetView;
     
@@ -191,8 +190,6 @@
     }
     
     /** 配图 */
-//    self.photoView.frame = statusFrame.photoViewF;
-//    self.photoView.backgroundColor = [UIColor redColor];
     if (status.pic_urls.count) {
         self.photosView.frame = statusFrame.photoViewF;
         self.photosView.photos = status.pic_urls;
