@@ -107,6 +107,8 @@
 		8EDBC4331CDAF1D6007F361E /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBC4321CDAF1D6007F361E /* UITextView+Extension.m */; };
 		8EDBC4361CDAFE89007F361E /* XZEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBC4351CDAFE89007F361E /* XZEmotionAttachment.m */; };
 		8EDBC43A1CDB04C6007F361E /* XZEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBC4391CDB04C6007F361E /* XZEmotionTool.m */; };
+		8EE5A2681CFEBC63004FBAB6 /* XZSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5A2671CFEBC63004FBAB6 /* XZSpecial.m */; };
+		8EE5A26B1CFEBE96004FBAB6 /* XZStatusTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5A26A1CFEBE96004FBAB6 /* XZStatusTextView.m */; };
 		8EFBD0D21CA0448A00822F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EFBD0D11CA0448A00822F2F /* Assets.xcassets */; };
 		8EFBD1271CA0EEA400822F2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFBD10C1CA0EEA400822F2F /* AppDelegate.m */; };
 		8EFBD1281CA0EEA400822F2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFBD10D1CA0EEA400822F2F /* main.m */; };
@@ -313,6 +315,10 @@
 		8EDBC4351CDAFE89007F361E /* XZEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZEmotionAttachment.m; sourceTree = "<group>"; };
 		8EDBC4381CDB04C6007F361E /* XZEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZEmotionTool.h; sourceTree = "<group>"; };
 		8EDBC4391CDB04C6007F361E /* XZEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZEmotionTool.m; sourceTree = "<group>"; };
+		8EE5A2661CFEBC63004FBAB6 /* XZSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZSpecial.h; sourceTree = "<group>"; };
+		8EE5A2671CFEBC63004FBAB6 /* XZSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZSpecial.m; sourceTree = "<group>"; };
+		8EE5A2691CFEBE96004FBAB6 /* XZStatusTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZStatusTextView.h; sourceTree = "<group>"; };
+		8EE5A26A1CFEBE96004FBAB6 /* XZStatusTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZStatusTextView.m; sourceTree = "<group>"; };
 		8EFBD0C21CA0448A00822F2F /* Cube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EFBD0D11CA0448A00822F2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EFBD0D61CA0448A00822F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -750,6 +756,8 @@
 				8ECE53E51CB4FF1A00EDCBCF /* XZPhoto.m */,
 				8E797BEB1CF2F51100D775D8 /* XZTextPart.h */,
 				8E797BEC1CF2F51100D775D8 /* XZTextPart.m */,
+				8EE5A2661CFEBC63004FBAB6 /* XZSpecial.h */,
+				8EE5A2671CFEBC63004FBAB6 /* XZSpecial.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -774,6 +782,8 @@
 				8ECE53F31CB5261B00EDCBCF /* XZStatusPhotosView.m */,
 				8ED9F81E1CB608F900B8E2A6 /* XZIconView.h */,
 				8ED9F81F1CB608F900B8E2A6 /* XZIconView.m */,
+				8EE5A2691CFEBE96004FBAB6 /* XZStatusTextView.h */,
+				8EE5A26A1CFEBE96004FBAB6 /* XZStatusTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1044,6 +1054,7 @@
 				8ECE53B91CB3BD3000EDCBCF /* MJArgument.m in Sources */,
 				8E25455B1CE9BB0C00EA58ED /* XZConst.m in Sources */,
 				8E5D88721CB357EA00215DB7 /* AFNetworkReachabilityManager.m in Sources */,
+				8EE5A2681CFEBC63004FBAB6 /* XZSpecial.m in Sources */,
 				8EFBD12B1CA0EEA400822F2F /* XZTabBarViewController.m in Sources */,
 				8EFBD1291CA0EEA400822F2F /* UIView+Extension.m in Sources */,
 				8EFBD13C1CA124B400822F2F /* XZProfileViewController.m in Sources */,
@@ -1085,6 +1096,7 @@
 				8ECCC7B21CBB7EF300CFE542 /* XZEmotionTabBar.m in Sources */,
 				8ECCC9881CBB9B3F00CFE542 /* XZEmotionPageView.m in Sources */,
 				8EB901B81CA2AE890086F3D8 /* XZSearchBar.m in Sources */,
+				8EE5A26B1CFEBE96004FBAB6 /* XZStatusTextView.m in Sources */,
 				8EFBD1331CA1239100822F2F /* XZMessageCenterViewController.m in Sources */,
 				8EB901BB1CA2E00F0086F3D8 /* XZDropdownMenu.m in Sources */,
 				8EB901C11CA2E9440086F3D8 /* XZUITabBar.m in Sources */,

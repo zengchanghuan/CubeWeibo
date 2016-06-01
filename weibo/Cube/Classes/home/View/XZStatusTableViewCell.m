@@ -15,6 +15,7 @@
 #import "XZStatusToolbar.h"
 #import "XZStatusPhotosView.h"
 #import "XZIconView.h"
+#import "XZStatusTextView.h"
 @interface XZStatusTableViewCell ()
 /* 原创微博 */
 /** 原创微博整体 */
@@ -35,13 +36,13 @@
 /** 来源 */
 @property (nonatomic, weak) UILabel *sourceLabel;
 /** 正文 */
-@property (nonatomic, weak) UILabel *contentLabel;
+@property (nonatomic, weak) XZStatusTextView *contentLabel;
 
 /* 转发微博 */
 /** 转发微博整体 */
 @property (nonatomic, weak) UIView *retweetView;
 /** 转发微博正文 + 昵称 */
-@property (nonatomic, weak) UILabel *retweetContentLabel;
+@property (nonatomic, weak) XZStatusTextView *retweetContentLabel;
 /** 转发配图 */
 //@property (nonatomic, weak) UIImageView *retweetPhotoView;
 
@@ -121,9 +122,9 @@
     self.sourceLabel = sourceLabel;
     
     /** 正文 */
-    UILabel *contentLabel = [[UILabel alloc] init];
-    contentLabel.font = XZStatusCellContentFont;
-    contentLabel.numberOfLines = 0;
+    XZStatusTextView *contentLabel = [[XZStatusTextView alloc] init];
+//    contentLabel.font = XZStatusCellContentFont;
+//    contentLabel.numberOfLines = 0;
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
 
@@ -140,9 +141,9 @@
     self.retweetView = retweetView;
     
     /** 转发微博正文 + 昵称 */
-    UILabel *retweetContentLabel = [[UILabel alloc] init];
-    retweetContentLabel.numberOfLines = 0;
-    retweetContentLabel.font = XZStatusCellRetweetContentFont;
+    XZStatusTextView *retweetContentLabel = [[XZStatusTextView alloc] init];
+//    retweetContentLabel.numberOfLines = 0;
+//    retweetContentLabel.font = XZStatusCellRetweetContentFont;
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel = retweetContentLabel;
     

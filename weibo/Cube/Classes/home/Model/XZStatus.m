@@ -13,6 +13,7 @@
 #import "RegexKitLite.h"
 #import "XZTextPart.h"
 #import "XZEmotionTool.h"
+#import "XZSpecial.h"
 @implementation XZStatus
 
 - (NSDictionary *)objectClassInArray
@@ -81,6 +82,7 @@
     }];
     
     UIFont *font = [UIFont systemFontOfSize:15];
+    NSMutableArray *specials = [[NSMutableArray alloc] initWithCapacity:2];
     // 按顺序拼接每一段文字
     for (XZTextPart *part in parts) {
         // 等会需要拼接的子串
@@ -99,6 +101,15 @@
             substr = [[NSAttributedString alloc] initWithString:part.text attributes:@{
                                                                                        NSForegroundColorAttributeName : [UIColor redColor]
                                                                                        }];
+            //创建特殊对象
+            XZSpecial *s = [XZSpecial new];
+            s.text = part.text;
+            NSUInteger loc = attributedText.length;
+            NSUInteger len = part.text.length;
+            s.range = NSMakeRange(loc, len);
+            [specials addObject:s];
+            
+            
         } else { // 非特殊文字
             substr = [[NSAttributedString alloc] initWithString:part.text];
         }
