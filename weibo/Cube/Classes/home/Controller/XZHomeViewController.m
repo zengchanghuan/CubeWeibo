@@ -21,6 +21,7 @@
 #import "XZStatusTableViewCell.h"
 #import "XZHttpTool.h"
 #import "MJRefresh.h"
+#import "XZStatusTool.h"
 @interface XZHomeViewController ()<XZDropdownMenuDelegate>
 /**
  *  微博数组（里面放的都是XZStatusFrames模型，一个XZStatusFrames就代表一条微博）
@@ -176,10 +177,53 @@
     //取出最前面的微博（ID最大的微博）
     XZStatusFrame *firstStatusF = [self.statusFrames firstObject];
     if (firstStatusF) {
+        
+        // 若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0
         params[@"since_id"] = firstStatusF.status.idstr;
         
     }
     
+    //定义一个block处理返回的字典数据
+    void (^dealingResult)(NSArray *) = ^(NSArray *statuses){
+        // 将 "微博字典"数组 转为 "微博模型"数组
+        NSArray *newStatuses = [XZStatus objectArrayWithKeyValuesArray:statuses];
+        
+        // 将 HWStatus数组 转为 HWStatusFrame数组
+        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
+        
+        // 将最新的微博数据，添加到总数组的最前面
+        NSRange range = NSMakeRange(0, newFrames.count);
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statusFrames insertObjects:newFrames atIndexes:set];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 结束刷新
+        [self.tableView headerEndRefreshing];
+        
+        // 显示最新微博的数量
+        [self showNewStatusCount:newStatuses.count];
+    };
+    
+    
+    //先尝试从数据库中加载微博数据
+    NSArray *statuses = [XZStatusTool statusesWithParams:params];
+    if (statuses.count) {
+        dealingResult(statuses);
+    } else {
+        [XZHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
+            [XZStatusTool savaStatuses:json[@"statuses"]];
+            dealingResult(json[@"statuses"]);
+        } failure:^(NSError *error) {
+            XZLog(@"请求失败-%@",error);
+            [self.tableView headerEndRefreshing];
+        }];
+    }
+    
+    
+    
+    /*
     [XZHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
         //将微博字典数组转为微博模型数组
         NSArray *newStatuses = [XZStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
@@ -201,6 +245,7 @@
     } failure:^(NSError *error) {
         [self.tableView headerEndRefreshing];
     }];
+     */
 }
 
 /**
@@ -223,7 +268,42 @@
         params[@"max_id"] = @(maxId);
     }
     
+    // 处理字典数据
+    void (^dealingResult)(NSArray *) = ^(NSArray *statuses) {
+        // 将 "微博字典"数组 转为 "微博模型"数组
+        NSArray *newStatuses = [XZStatus objectArrayWithKeyValuesArray:statuses];
+        
+        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
+        
+        // 将更多的微博数据，添加到总数组的最后面
+        [self.statusFrames addObjectsFromArray:newFrames];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 结束刷新(隐藏footer)
+        [self.tableView footerEndRefreshing];
+    };
+
     
+    //加载沙盒中的数据
+    NSArray *statuses = [XZStatusTool statusesWithParams:params];
+    if (statuses.count) {
+        dealingResult(statuses);
+    } else {
+        //发送请求
+        [XZHttpTool get:@"" params:params success:^(id json) {
+            //缓存新浪返回的字典数组
+            [XZStatusTool savaStatuses:json[@"statuses"]];
+            dealingResult(json[@"statuses"]);
+        } failure:^(NSError *error) {
+            [self.tableView footerEndRefreshing];
+        }];
+    }
+    
+    
+    
+    /*
     [XZHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
         // 将 "微博字典"数组 转为 "微博模型"数组
         NSArray *newStatuses = [XZStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
@@ -245,6 +325,7 @@
         [self.tableView footerEndRefreshing];
 
     }];
+    */
 }
 //设置导航用户栏
 

@@ -197,13 +197,10 @@
         NSRange range;
         range.location = [source rangeOfString:@">"].location + 1;
         range.length = [source rangeOfString:@"</"].location - range.location;
-        
-        //    range.length = [source rangeOfString:@"<" options:NSBackwardsSearch];
-        NSLog(@"source = %@",source);
-        NSLog(@"location = %lu, length = %lu  ",(unsigned long)range.location,(unsigned long)range.length);
         _source = [NSString stringWithFormat:@"来自%@", [source substringWithRange:range]];
+    }else {
+        _source = @"来自新浪微博";
     }
-    
     
 }
 @end
