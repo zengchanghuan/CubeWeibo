@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XZProfileViewController : UIViewController
+@interface XZProfileViewController : UITableViewController
 
 @end
