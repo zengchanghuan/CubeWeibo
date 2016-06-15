@@ -91,7 +91,7 @@
     /* 被转发微博 */
     if (status.retweeted_status) {
         XZStatus *retweeted_status = status.retweeted_status;
-        XZUser *retweeted_status_user = retweeted_status.user;
+//        XZUser *retweeted_status_user = retweeted_status.user;
         
         /** 被转发微博正文 */
         CGFloat retweetContentX = XZStatusCellBorderW;
