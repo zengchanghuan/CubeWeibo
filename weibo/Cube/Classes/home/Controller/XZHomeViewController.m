@@ -223,29 +223,6 @@
     
     
     
-    /*
-    [XZHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
-        //将微博字典数组转为微博模型数组
-        NSArray *newStatuses = [XZStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
-        
-        //将XZStatus数组转为XZStatusFrame数组
-        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
-        
-        //将最新的微博数据，添加到总数组的最前面
-        NSRange range = NSMakeRange(0, newFrames.count);
-        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statusFrames insertObjects:newFrames atIndexes:set];
-        
-        [self.tableView reloadData];
-        
-
-        [self.tableView headerEndRefreshing];
-        [self showNewStatusCount:newStatuses.count];
-
-    } failure:^(NSError *error) {
-        [self.tableView headerEndRefreshing];
-    }];
-     */
 }
 
 /**
@@ -300,32 +277,7 @@
             [self.tableView footerEndRefreshing];
         }];
     }
-    
-    
-    
-    /*
-    [XZHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id json) {
-        // 将 "微博字典"数组 转为 "微博模型"数组
-        NSArray *newStatuses = [XZStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
-        
-        //将XZStatus数组转为XZStatusFrame数组
-        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
-        
-        //将更多的微博数据添加到数组的最后面
-        [self.statusFrames addObjectsFromArray:newFrames];
-        
-        // 刷新表格
-        [self.tableView reloadData];
-        
-        // 结束刷新(隐藏footer)
-        [self.tableView footerEndRefreshing];
-        
-    } failure:^(NSError *error) {
-        // 结束刷新
-        [self.tableView footerEndRefreshing];
 
-    }];
-    */
 }
 //设置导航用户栏
 
